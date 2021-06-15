@@ -11,8 +11,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-data = pd.read_excel("/Users/xueerding/Desktop/MiCM/data/Extracted-Parameters.xlsx", 
-                     sheet_name="Combined", header=4, index_col=[0,1], skiprows=[5,])
+#uncomment and add filepath to extracted parameters file
+data = pd.read_excel()
 
 data_to_clus = data[['Total spikes', 'MFR', 'Number of bursts', 
                      'Number of network bursts', 'Synchrony index']]

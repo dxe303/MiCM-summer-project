@@ -11,7 +11,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
-data = pd.read_excel("/Users/xueerding/Desktop/MiCM/data/Extracted-Parameters.xlsx", sheet_name="Combined", header=4, index_col=[0,1], skiprows=[5,])
+#uncomment and add filepath to extracted parameters file
+#data = pd.read_excel()
 
 print(data.head(5))
 print(data.tail(5))

@@ -2,6 +2,28 @@
 
 Analysis of 2D and 3D models of neural electrical activity in Parkinson’s disease
 
+## Hierarchical clustering
+### Objective:
+Generate a hierarchically clustered heatmap showing how midbrain organoids generated from a synuclein triplication mutant line and a healthy control line are clustered based on their electrophysiological activity.
+
+### Installation:
+Dependencies:
+- python 3.6+
+- seaborn 0.11.1
+
+Install seaborn:
+`pip install seaborn`
+Also included in Anaconda distribution
+`conda install seaborn`
+
+### Running the code:
+download hierarchical.py
+`python hierarchical.py`
+
+### Output:
+![Fig_2_Mut_vs_Con](https://user-images.githubusercontent.com/71605598/122827100-f405d780-d2b1-11eb-8510-56a367b2a518.png)
+
+
 ## Relevant readings:
 ### Electrophysiology
 - M. Chiappalone, A. Novellino, I. Vajda, A. Vato, S. Martinoia, J. van Pelt. Burst detection algorithms for the analysis of spatio-temporal patterns in cortical networks of neurons. Neurocomputing. https://doi.org/10.1016/j.neucom.2004.10.094. 

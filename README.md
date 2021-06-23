@@ -29,7 +29,7 @@ $ git clone https://github.com/dxe303/MiCM-summer-project.git
 
 2. From the cloned directory, run the hierarchical.py script with the filepath to Extracted-Parameters.xlsx as an argument
 ```
-$ python hierarchical-exercise.py Extracted-Parameters.xlsx
+$ python hierarchical_exercise.py Extracted-Parameters.xlsx
 ```
 
 ### Output:

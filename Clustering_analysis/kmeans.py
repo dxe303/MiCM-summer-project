@@ -32,12 +32,6 @@ data['cen_y'] = data.cluster.map({0:cen_y[0], 1:cen_y[1], 2:cen_y[2]})
 colors = ['#DF2020', '#81DF20', '#2095DF']
 data['c'] = data.cluster.map({0:colors[0], 1:colors[1], 2:colors[2]})
 
-
-'''
-# 2D plot
-plt.scatter(data["Total spikes"], data["Number of bursts"], c=data.c, alpha = 0.6, s=10)
-'''
-
 # 3D plot
 fig = plt.figure(figsize=(30,25))
 ax = fig.add_subplot(111, projection='3d')

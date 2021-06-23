@@ -11,20 +11,26 @@ Dependencies:
 - python 3.6+
 - seaborn 0.11.1
 
-Install seaborn:
-```$ pip install seaborn```
+To install seaborn:
+```
+$ pip install seaborn
+```
 
-Also included in Anaconda distribution
-```$ conda install seaborn```
+Also included in Anaconda distribution:
+```
+$ conda install seaborn
+```
 
 ### Running the code:
-1. Download the compiled parameters file and the hierarchical.py script
+1. Clone the repository
+```
+$ git clone https://github.com/dxe303/MiCM-summer-project.git
+```
 
-2. Uncomment and add the compiled parameters filepath to 
-```data = pd.read_excel()```
-
-3. Run the hierarchical.py script
-```$ python hierarchical.py```
+2. From the cloned directory, run the hierarchical.py script with the filepath to Extracted-Parameters.xlsx as an argument
+```
+$ python hierarchical.py Extracted-Parameters.xlsx
+```
 
 ### Output:
 ![Fig_2_Mut_vs_Con](https://user-images.githubusercontent.com/71605598/122827100-f405d780-d2b1-11eb-8510-56a367b2a518.png)

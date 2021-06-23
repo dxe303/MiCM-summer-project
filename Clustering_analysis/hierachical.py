@@ -49,8 +49,9 @@ data_clusterGrid2 = sns.clustermap(data_to_clus2, standard_scale=1, figsize=(12,
 
 
 # hierarchical clustering for syn mutants only
-data3 = pd.read_excel("/Users/xueerding/Desktop/MiCM/data/Extracted-Parameters.xlsx", 
-                     sheet_name="Synuclein Triplication", header=4, index_col=[0,1], skiprows=[5,])
+#uncomment and add filepath to extracted parameters file
+#data3 = pd.read_excel("", 
+#                     sheet_name="Synuclein Triplication", header=4, index_col=[0,1], skiprows=[5,])
 
 print(data3.head(5))
 print(data3.tail(5))

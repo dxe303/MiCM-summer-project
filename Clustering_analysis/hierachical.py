@@ -9,15 +9,9 @@ Created on Wed Jun  9 11:04:50 2021
 import pandas as pd
 import seaborn as sns
 
-<<<<<<< HEAD:Clustering_analysis/hierachical.py
 # hierarchical clustering by plate
 data = pd.read_excel("/Users/xueerding/Desktop/MiCM/data/Extracted-Parameters.xlsx", 
                      sheet_name="Combined", header=4, index_col=[0,1], skiprows=[5,])
-=======
-#uncomment and add filepath to extracted parameters file
-#data = pd.read_excel("", 
-#                     sheet_name="Edited", header=4, index_col=[0,1,2], skiprows=[5,])
->>>>>>> f97b2d57c7b570e13d669a8eb50c73bdfb8a674b:hierachical.py
 
 data_to_clus = data[['Total spikes', 'MFR', 'Number of bursts', 
                      'Number of network bursts', 'Synchrony index']]
@@ -32,16 +26,10 @@ data_clusterGrid = sns.clustermap(data_to_clus, standard_scale=1, figsize=(12, 1
                                   dendrogram_ratio=(.3, .3), cbar_pos=(0, .05, .03, .3), 
                                   row_colors=row_colors )
 
-<<<<<<< HEAD:Clustering_analysis/hierachical.py
 
 # hierarchical clustering by cell line
 data2 = pd.read_excel("/Users/xueerding/Desktop/MiCM/data/Extracted-Parameters.xlsx", 
                      sheet_name="Edited", header=4, index_col=[0,1,2], skiprows=[5,])
-=======
-#uncomment and add filepath to extracted parameters file
-#data2 = pd.read_excel("", 
-#                     sheet_name="Edited", header=4, index_col=[0,1,2], skiprows=[5,])
->>>>>>> f97b2d57c7b570e13d669a8eb50c73bdfb8a674b:hierachical.py
 
 print(data2.head(5))
 print(data2.tail(5))

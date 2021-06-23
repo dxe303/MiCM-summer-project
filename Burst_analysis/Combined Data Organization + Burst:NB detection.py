@@ -27,22 +27,38 @@ import statistics as st
 
 #sheetname = "Sheet2" #PUT SHEETNAME HERE
 
-data = pd.read_excel("/Users/ghislainedeyab/Desktop/Book1.xlsx") #PUT FILE NAME
+data = pd.read_excel("/Users/ghislainedeyab/Desktop/Book1.xlsx") #PUT FILE NAME  # can pass the input file name as an argument?
 
 #data = data.dropna()
 
 
 exception = input('please enter electrode numbers you dont want to analyze separated by commas: ')
-exception_list = exception.split(',')
+exception_list = exception.split(',')  # what if there are spaces?
 
 
 well_list = ["A1_","A2_","A3_","A4_","A5_","A6_","B1_","B2_","B3_","B4_","B5_","B6_","C1_","C2_","C3_","C4_","C5_","C6_","D1_","D2_","D3_","D4_","D5_","D6_"]
 
 electrodes = []
-total_list= []
 elec_row = 1
 elec_col = 0
 
+# attempt at simplification
+for wells in well_list:
+    while elec_row <= 4:
+        while elec_col < 4:  # so electrode columns are 0-3?
+            electrodes.append(wells + str(elec_row) + str(elec_col))
+            elec_col +=1
+        elec_col = 0 
+        elec_row += 1 
+
+electrode_dict = {k:[] for k in electrodes}
+
+
+'''
+electrodes = []
+total_list= []
+elec_row = 1
+elec_col = 0
 
 electrode_list = []
 for wells in well_list:
@@ -60,19 +76,26 @@ for wells in well_list:
 new_electrode_list = list(itertools.chain.from_iterable(electrode_list))
 
 electrode_dict = {k:[] for k in new_electrode_list}
-
+'''
 
 
 output = xlsxwriter.Workbook("/Users/ghislainedeyab/Desktop/AST23_3weeks.xlsx")
 
-for electrode in new_electrode_list:
+# do we need two nested for loops tho?? purpose: add entry with row index _3 (time?) to corresponding electrode entry in dict
+for row in data.itertuples():
+    if row.Electrode not in exception_list:
+        electrode_dict[row.Electrode].append(row._3)  # every row.Electrode must have corresponding entry in dict
+
+'''
+for electrode in electrodes:
     for row in data.itertuples():
         if electrode not in exception_list:
             if electrode == row.Electrode:
                 electrode_dict[electrode].append(row._3)
-        
+'''
 
-               
+
+# create worksheet for every well              
 for wells in well_list:
     ind = 1
     active_ind = 1
@@ -84,12 +107,14 @@ for wells in well_list:
     worksheet.write("C1","Amplitude(mV)")
     worksheet.write("D1","Excluded electrodes")
     
+    # add corresponding electrode data of every well
     for row in data.itertuples():
-        if row.Electrode[:3] == wells and row.Electrode not in exception_list:
+        if row.Electrode[:3] == wells and row.Electrode not in exception_list:  # sort electrodes by well beforehand?
             worksheet.write(ind,0,row.Electrode)
-            worksheet.write(ind,1, row._3)
-            worksheet.write(ind,2,row._5)
+            worksheet.write(ind,1, row._3)  # _3 corresponds to time?
+            worksheet.write(ind,2,row._5)  # _5 is amplitude?
             ind += 1
+    # list excluded electrodes
     if len(exception_list) > 0:
         for ex in exception_list:
             worksheet.write(exc_index,3,ex)
@@ -102,13 +127,14 @@ for wells in well_list:
     electrode_list = []
     elec_row = 1
     elec_col = 0
-    while len(electrode_list) < 16:
+    while len(electrode_list) < 16:  # see previous instance
         while elec_col < 4:
             elec_col += 1
             electrode_list.append(wells + str(elec_row) + str(elec_col))
         elec_col = 0
         elec_row += 1
     
+    # create dictionnary of electrodes for this well mapped to time: didnt we do this already but for all wells?
     data_list = {k:[] for k in electrode_list}
     for k in data_list.keys():
         for index, row in data.iterrows():

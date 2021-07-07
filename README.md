@@ -29,10 +29,11 @@ $ git clone https://github.com/dxe303/MiCM-summer-project.git
 
 2. From the cloned directory, run the hierarchical.py script with the filepath to Extracted-Parameters.xlsx as an argument
 ```
-$ python hierarchical.py Extracted-Parameters.xlsx
+$ python hierarchical_exercise.py Extracted-Parameters.xlsx
 ```
 
 ### Output:
+The plot will be saved in the cloned directory under hierarchical.png
 ![Fig_2_Mut_vs_Con](https://user-images.githubusercontent.com/71605598/122827100-f405d780-d2b1-11eb-8510-56a367b2a518.png)
 
 

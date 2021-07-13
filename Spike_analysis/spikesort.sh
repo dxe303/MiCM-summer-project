@@ -29,27 +29,30 @@ fi
 
 # find files with spike list
 find $origin -name '*_spike_list.csv' -exec awk '
-        BEGIN { FS=OFS=","; elec=0; time=0;}
+        BEGIN { FS=OFS=","; elec=0; time=0; }
         {
-            if (NR == 1) {
+                if (NR == 1) {
                 for (i=0; i<=NF; i++) {
-                    if ($i == "Electrode") {
+                        if ($i == "Electrode") {
                         elec=i;
-                    }
-                    if ($i == "Time (s)") {
+                        }
+                        if ($i == "Time (s)") {
                         time=i;
-                    }
+                        }
                 }
 
-                #base=substr(FILENAME, 1, length(FILENAME)-25);
-                #out=base"_well_list"
-                #system("mkdir out");
-            }
+                base=substr(FILENAME, 1, length(FILENAME)-25);
+                out=base"_well_list"
+                cmd="mkdir "out
+                system(cmd);
+
+                }
+
                 if (NR != 1 && $elec ~ /_/) {  
                         well=substr($elec,1,3);
                         out=substr(FILENAME, 1, length(FILENAME)-25);
-                        #out=base"_well_list"
-			            path=out"_"well"spikes.csv";
+                        out=base"_well_list"
+                        path=out"/"well"spikes.csv";
                         print $elec, $time >> path;
                 }
         }' {} \;

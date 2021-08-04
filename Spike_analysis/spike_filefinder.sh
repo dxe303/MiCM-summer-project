@@ -30,4 +30,4 @@ fi
 
 
 # find files with spike list
-find $origin -name '*_spikes.csv' -exec python ./spike_matrix.py {} \;
+find $origin -name '*_spikes.csv' -exec python ./spike_raster.py {} \;

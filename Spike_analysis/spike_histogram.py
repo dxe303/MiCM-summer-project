@@ -17,7 +17,7 @@ inputFile = sys.argv[1]  # first field should be input file path
 df = pd.read_csv(inputFile, header=None, names=["Electrode", "Time (s)"])
 
 '''
-inputFile = '/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_2h/Feb132020_ND3439SNCA_WTest3_2h_well_list/B2_spikes.csv'
+inputFile = '/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_2h_TTX/Feb132020_ND3439SNCA_WTest3_2h_TTX_well_list/D6_spikes.csv'
 df = pd.read_csv(inputFile, header=None, names=["Electrode", "Time (s)"])
 
 
@@ -33,11 +33,9 @@ dict = data.to_dict(orient='index')
 
 data2 = pd.DataFrame( {key:pd.Series(value['Time (s)']) for key, value in dict.items()} )
 data_list = data2.astype('float64')
-print(data_list)
+#print(data_list)
 
 ISIs = data2.diff()
-print(ISIs)
-
 
 
 #hist = ISIs.hist(bins=100, range=(0, max(ISIs.max())), density=True)   
@@ -53,13 +51,13 @@ hist2 = logISIs.plot.hist(bins=100, title=inputFile[24:]+' histogram of logISIs 
 hist2.set_xlabel('logISI')
 hist2.set_ylabel('Frequency per bin')
 #hist2.title('Histogram of logISIs')
-hist2.figsize = (12, 6)
-
+hist2.figsize = (50, 20)
+#hist2.figure.savefig(inputFile[:-4] + '_well_hist')
 
 #hist3 = logISIs.hist(bins=100, range=(0, max(logISIs.max())), density=True)  
-hist4 = logISIs.plot.hist(bins=200, subplots=True, sharex=True, sharey=True,
+hist4 = logISIs.plot.hist(bins=100, subplots=True, sharex=True, sharey=True,
                        xlabel='logISI', layout=(4,4),
                        title=inputFile[24:]+' histogram of logISIs by electrode')
-
+#hist2.figure.savefig(inputFile[:-4] + '_elec_hist')
 
 

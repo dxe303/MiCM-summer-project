@@ -15,7 +15,7 @@ for i in "$@"
 do
         if [[ ! -d $i ]]
         then 
-                echo "Error!! $i is not a valid directory"
+                echo "Error $i is not a valid directory"
                 exit 1
         fi
 done
@@ -32,26 +32,26 @@ find $origin -name '*_spike_list.csv' -exec awk '
         BEGIN { FS=OFS=","; elec=0; time=0; }
         {
                 if (NR == 1) {
-                for (i=0; i<=NF; i++) {
-                        if ($i == "Electrode") {
-                        elec=i;
+                        for (i=1; i<=NF; i++) {
+                                if ($i ~ /Electrode/) {
+                                        elec=i;
+                                }
+                                if ($i ~ /Time/) {
+                                        time=i;
+                                }
                         }
-                        if ($i == "Time (s)") {
-                        time=i;
-                        }
-                }
 
-                base=substr(FILENAME, 1, length(FILENAME)-25);
-                out=base"_well_list"
-                cmd="mkdir "out
-                system(cmd);
+                        base=substr(FILENAME, 1, length(FILENAME)-25);
+                        out=base"_well_list";
+                        cmd="mkdir "out;
+                        system(cmd);
 
                 }
 
                 if (NR != 1 && $elec ~ /_/) {  
                         well=substr($elec,1,3);
-                        out=substr(FILENAME, 1, length(FILENAME)-25);
-                        out=base"_well_list"
+                        base=substr(FILENAME, 1, length(FILENAME)-25);
+                        out=base"_well_list";
                         path=out"/"well"spikes.csv";
                         print $elec, $time >> path;
                 }

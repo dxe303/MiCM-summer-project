@@ -209,7 +209,7 @@ for start, elec, end, spike, dur in zip(range(len(first_list)),range(len(electro
             electrode.append(electrode_list[elec])
             
     else: 
-        elec_number = set(electrode) #if the umber of electrodes present is laregr than 20% of all bursting electrodes than we can classify the cluster of electrode bursts as a NB
+        elec_number = set(electrode) #if the number of electrodes present is larger than 20% of all bursting electrodes than we can classify the cluster of electrode bursts as a NB
         if len(network_start)>0 and len(elec_number) >= (minpercent*num_bursting) and sum(spike_num) >= 50:
             burst_number.append(len(network_start))
             burst_start.append(min(network_start))

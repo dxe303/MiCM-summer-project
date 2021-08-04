@@ -12,8 +12,9 @@ import pandas as pd
 
 from scipy import signal
 import matplotlib.pyplot as plt
+plt.rcParams["figure.figsize"] = (20, 10)
 
-'''
+
 inputFile = sys.argv[1]  # first field should be input file path
 
 df = pd.read_csv(inputFile, header=None, names=["Electrode", "Time (s)"])
@@ -21,8 +22,10 @@ df = pd.read_csv(inputFile, header=None, names=["Electrode", "Time (s)"])
 '''
 #inputFile = '/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_1h/Feb132020_ND3439SNCA_WTest3_1h(000)(000)_spike_counts.csv'
 #inputFile ='/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_BTest4_2h/Feb132020_ND3439SNCA_BTest4_2h(000)(000)_spike_counts.csv'
-inputFile ='/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest1_2h/Feb132020_ND3439SNCA_WTest1_2h(000)(000)_spike_counts.csv'
-#inputFile ='/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_2h_TTX/Feb132020_ND3439SNCA_WTest3_2h_TTX(000)(000)_spike_counts.csv'
+#inputFile ='/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest1_2h/Feb132020_ND3439SNCA_WTest1_2h(000)(000)_spike_counts.csv'
+inputFile = '/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_2h_TTX/Feb132020_ND3439SNCA_WTest3_2h_TTX(000)(000)_spike_counts.csv'
+'''
+
 df = pd.read_csv(inputFile, 
                  index_col='Interval Start (S)',
                  usecols=['Interval Start (S)',
@@ -59,3 +62,4 @@ for column in timeSeries:
     #outputFile = inputFile[:-16] + column + '_power_spectrum.csv'
     #pow_spec.to_csv(outputFile)
 
+fig.savefig(inputFile[:-4] + '_pow_spec')

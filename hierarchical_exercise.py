@@ -9,6 +9,7 @@ Created on Wed Jun 23 11:45:16 2021
 import sys
 import pandas as pd
 import seaborn as sns
+import matplotlib as plt
 
 inputFile = sys.argv[1]  # first field should be input file path
 
@@ -30,3 +31,5 @@ data_clusterGrid2 = sns.clustermap(data_to_clus2, standard_scale=1, figsize=(12,
                                    row_colors=row_colors2 )
 
 data_clusterGrid2.savefig("hierarchical.png")
+
+plt.show()

@@ -16,14 +16,10 @@ from scipy.signal import argrelextrema
 from itertools import chain
 import math
 import statistics as st
-'''
+
 inputFile = sys.argv[1]  # first field should be input file path
+#inputFile = '/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_2h/Feb132020_ND3439SNCA_WTest3_2h_well_list/D6_burst_list.csv'
 
-df = pd.read_csv(inputFile, header=None, names=["Electrode", "Time (s)"])
-
-
-'''
-inputFile = '/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_2h/Feb132020_ND3439SNCA_WTest3_2h_well_list/D6_burst_list.csv'
 df = pd.read_csv(inputFile)
 
 sorted_data = df.sort_values('First spike time (sec)') #Sorts data from smallest electrode burst start time to largest 

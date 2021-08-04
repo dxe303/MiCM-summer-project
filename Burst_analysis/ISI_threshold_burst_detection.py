@@ -11,17 +11,10 @@ import csv
 import numpy as np
 import pandas as pd
 
-'''
+
 inputFile = sys.argv[1]  # first field should be input file path
+#inputFile = '/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_2h/Feb132020_ND3439SNCA_WTest3_2h_well_list/D6_spikes.csv'
 
-df = pd.read_csv(inputFile, header=None, names=["Electrode", "Time (s)"])
-
-
-'''
-#inputFile = '/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_2h_TTX/Feb132020_ND3439SNCA_WTest3_2h_TTX_well_list/B6_spikes.csv'
-#inputFile = '/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_2h_TTX/Feb132020_ND3439SNCA_WTest3_2h_TTX_well_list/B5_spikes.csv'
-#inputFile = '/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_2h_TTX/Feb132020_ND3439SNCA_WTest3_2h_TTX_well_list/B1_spikes.csv'
-inputFile = '/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_2h/Feb132020_ND3439SNCA_WTest3_2h_well_list/D6_spikes.csv'
 df = pd.read_csv(inputFile, header=None, names=["Electrode", "Time (s)"], 
                  dtype={"Electrode":'str', "Time (s)":'float'})
 
@@ -35,7 +28,6 @@ data_dict = data.to_dict(orient='index')
 
 data2 = pd.DataFrame( {key:pd.Series(value['Time (s)']) for key, value in data_dict.items()} )
 spike_data = data2.astype('float64')
-#print(spike_data)
 
 # detect bursts using ISI threshold method
 minspikes = 5  # threshold for the minimum number of spikes allowed in a burst

@@ -5,13 +5,15 @@ Created on Wed Jun  9 11:04:50 2021
 
 @author: xueerding
 """
-
+import sys
 import pandas as pd
 import seaborn as sns
+import matplotlib.pyplot  as plt
+
+inputFile = sys.argv[1]  # first field should be input file path
 
 # hierarchical clustering by plate
-data = pd.read_excel("/Users/xueerding/Desktop/MiCM/data/Extracted-Parameters.xlsx", 
-                     sheet_name="Combined", header=4, index_col=[0,1], skiprows=[5,])
+data = pd.read_excel(inputFile, sheet_name="Combined by plate", header=4, index_col=[0,1], skiprows=[5,])
 
 data_to_clus = data[['Total spikes', 'MFR', 'Number of bursts', 
                      'Number of network bursts', 'Synchrony index']]
@@ -28,11 +30,7 @@ data_clusterGrid = sns.clustermap(data_to_clus, standard_scale=1, figsize=(12, 1
 
 
 # hierarchical clustering by cell line
-data2 = pd.read_excel("/Users/xueerding/Desktop/MiCM/data/Extracted-Parameters.xlsx", 
-                     sheet_name="Edited", header=4, index_col=[0,1,2], skiprows=[5,])
-
-print(data2.head(5))
-print(data2.tail(5))
+data2 = pd.read_excel(inputFile, sheet_name="Combined by line", header=4, index_col=[0,1,2], skiprows=[5,])
 
 data_to_clus2 = data2[['Total spikes', 'MFR', 'Number of bursts', 
                      'Number of network bursts', 'Synchrony index']]
@@ -48,13 +46,8 @@ data_clusterGrid2 = sns.clustermap(data_to_clus2, standard_scale=1, figsize=(12,
                                    row_colors=row_colors2 )
 
 
-# hierarchical clustering for syn mutants only
-#uncomment and add filepath to extracted parameters file
-#data3 = pd.read_excel("", 
-#                     sheet_name="Synuclein Triplication", header=4, index_col=[0,1], skiprows=[5,])
-
-print(data3.head(5))
-print(data3.tail(5))
+# hierarchical clustering by plate for syn mutants only
+data3 = pd.read_excel(inputFile, sheet_name="Synuclein Triplication", header=4, index_col=[0,1], skiprows=[5,])
 
 data_to_clus3 = data3[['Total spikes', 'MFR', 'Number of bursts', 
                      'Number of network bursts', 'Synchrony index']]
@@ -69,5 +62,7 @@ data_clusterGrid3 = sns.clustermap(data_to_clus3, standard_scale=1, figsize=(12,
                                    dendrogram_ratio=(.3, .3), cbar_pos=(0, .05, .03, .3),
                                    row_colors=row_colors3 )
 
+
+plt.show()
 #data_clusterGrid3.fig.suptitle('Hierarchical clustering of mutant organoids')
 

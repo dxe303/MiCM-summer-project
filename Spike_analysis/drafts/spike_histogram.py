@@ -12,13 +12,15 @@ import pandas as pd
 
 
 '''
+This script takes as input the _spikes.csv files outputted by the spike_sort.py script
+and produces a histogram of logISIs colored by well
 inputFile = sys.argv[1]  # first field should be input file path
 
-df = pd.read_csv(inputFile, header=None, names=["Electrode", "Time (s)"])
+df = pd.read_csv(inputFile, usecols=["Electrode", "Time (s)"])
 
 '''
 inputFile = '/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_2h_TTX/Feb132020_ND3439SNCA_WTest3_2h_TTX_well_list/D6_spikes.csv'
-df = pd.read_csv(inputFile, header=None, names=["Electrode", "Time (s)"])
+df = pd.read_csv(inputFile, usecols=["Electrode", "Time (s)"])
 
 
 df.dropna(inplace=True)

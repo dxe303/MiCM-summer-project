@@ -20,6 +20,8 @@ inputFile = sys.argv[1]  # first field should be input file path
 df = pd.read_csv(inputFile, header=None, names=["Electrode", "Time (s)"])
 
 '''
+This script takes as input the _spike_counts.csv files outputted by Axion software
+and produces a grid of power spectrum subplots for each well 
 #inputFile = '/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_1h/Feb132020_ND3439SNCA_WTest3_1h(000)(000)_spike_counts.csv'
 #inputFile ='/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_BTest4_2h/Feb132020_ND3439SNCA_BTest4_2h(000)(000)_spike_counts.csv'
 #inputFile ='/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest1_2h/Feb132020_ND3439SNCA_WTest1_2h(000)(000)_spike_counts.csv'

@@ -105,7 +105,7 @@ $ python power_spectrum_mean.py Mutant_organoids 0.05
 ![mean_pow_spec_freq_20](https://user-images.githubusercontent.com/71605598/130263689-07bb7ba4-74a5-4153-8907-698efb0e13b2.png)
 
 ## Others
-`MiCM-summer-project\bash_scripts` contains spikesort.sh, a bash script version of spike_sort.py, and spike_filefinder.sh, for finding spikes.csv files and executing anothher script on every file found.
+`MiCM-summer-project\bash_scripts` contains spikesort.sh, a bash script version of spike_sort.py, and spike_filefinder.sh, for finding spikes.csv files and executing another script on every file found.
 
 `MiCM-summer-project\Burst_analysis\original_scripts` contains the original raster plotting, data organization, burst detection and network burst detection scripts that work with excel files.
 

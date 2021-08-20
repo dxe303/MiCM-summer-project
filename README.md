@@ -52,7 +52,7 @@ $ python hierarchical.py Extracted-Parameters.xlsx
 ### Burst detection using the ISI threshold method:
 Detect electrode burts for a well using the ISI threshold method, with the minimum number of spikes allowed in a burst set to 5 and the maximum inter spike interval allowed in a burst set to 0.1 sec. Also computes the histogram of logISIs for each organoid.
 
-Output: a burst_list.csv file and a log_ISI.png file for every spikes.csv input file
+Output: a bursts.csv file and a log_ISI.png file for every spikes.csv input file
 
 1. To run the ISI_threshold_burst_detection.py script on all spikes.csv files inside some $inputFolder: 
 ```
@@ -62,11 +62,12 @@ $ python ISI_threshold_burst_detection.py inputFolder
 ![W2_D6_log_ISI](https://user-images.githubusercontent.com/71605598/130262587-7541aade-b070-4a53-904b-eca5ff946aff.png)
 
 ### Network burst detection using the adaptive threshold method:
-Detect network burts for a well using the ISI threshold method, with the minimum percent of spikes allowed in a burst set to 0.1875 out of 16 bursting electrodes. Also computes the histogram of logIBeIs for each organoid.
+Detect network burts for a well using the ISI threshold method, with the minimum percent of spikes allowed in a burst set to 0.1875 out of 16 bursting electrodes. Also computes the histogram of logIBeIs for each organoid. 
+N.B.: ISI_threshold_burst_detection.py must be run on data before running this script
 
-Output: a histogram of log inter burst event intervals saved as a log_IBeIH.png file and a network_burst_list.csv file for every burst_list.csv input file.
+Output: a histogram of log inter burst event intervals saved as a log_IBeIH.png file and a networkBursts.csv file for every burst_list.csv input file.
 
-1. To run the Adaptive_threshold_network_burst_detection.py script on all spikes.csv files inside some $inputFolder: 
+1. To run the Adaptive_threshold_network_burst_detection.py script on all bursts.csv files inside some $inputFolder: 
 ```
 $ python Adaptive_threshold_network_burst_detection.py inputFolder
 ```
@@ -75,7 +76,7 @@ $ python Adaptive_threshold_network_burst_detection.py inputFolder
 
 ## Spike analysis
 ### Raster plots + histograms of spike count per 1 second bin
-Plots a raster plot of spike train data for every organoid, along with a histogram of spike counts per 1 second interval.
+Plots a raster plot of spike train data for every organoid, along with a histogram of spike counts per 1 second interval. If available, will also plot the burst and network burst information for every organoid. To get burst and network burst information, run ISI_threshold_burst_detection.py and Adaptive_threshold_network_burst_detection.py on data before running spike_raster.py.
 
 1. To run the spike_raster.py script on all spikes.csv files inside some $inputFolder: 
 ```

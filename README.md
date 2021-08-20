@@ -1,6 +1,6 @@
 # MiCM-summer-project
 
-Analysis of 2D and 3D models of neural electrical activity in Parkinson’s disease
+Data visualization tools for MEA data of 2D and 3D cell cultures
 
 ## Installation:
 Dependencies:
@@ -104,6 +104,14 @@ $ python power_spectrum_mean.py Mutant_organoids 0.05
 #### Example output with bin size=0.05:
 ![mean_pow_spec_freq_20](https://user-images.githubusercontent.com/71605598/130263689-07bb7ba4-74a5-4153-8907-698efb0e13b2.png)
 
+## Others
+`MiCM-summer-project\bash_scripts` contains spikesort.sh, a bash script version of spike_sort.py, and spike_filefinder.sh, for finding spikes.csv files and executing anothher script on every file found.
+
+`MiCM-summer-project\Burst_analysis\original_scripts` contains the original raster plotting, data organization, burst detection and network burst detection scripts that work with excel files.
+
+`MiCM-summer-project\Clustering_analysis\kmeans` performs k means clustering on an Extracted-Parameters.xlsx file, similar to the hierarchical clustering script.
+
+`MiCM-summer-project\Spike_analysis\drafts` contains spike_histogram.py, which plots a histogram of logISIs for an input spikes.csv file, and power_spectrum_axion.py, which plots a grid of power spectrums for every organoid in the spike_counts.csv outputted by Axion software.
 
 ## Relevant readings:
 ### Electrophysiology

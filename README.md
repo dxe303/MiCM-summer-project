@@ -25,7 +25,7 @@ To preprocess the spike train data of all organoids on a plate given by the spik
 
 1. From the Spike_analysis folder of the cloned directory, run the spike_sort.py bash script with the input folder containing all spike_list.csv files as the first command line argument. 
 ```
-$ python spike_analysis.py inputFolder
+$ python spike_sort.py inputFolder
 ```
 
 ## Clustering analysis

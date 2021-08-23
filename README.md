@@ -6,6 +6,7 @@ Data visualization tools for MEA data of 2D and 3D cell cultures
 Dependencies:
 - python 3.6+
 - seaborn 0.11.1
+- pandas 1.1.0+
 
 To install seaborn:
 ```

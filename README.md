@@ -41,7 +41,9 @@ The plot will be saved in the cloned directory under hierarchical.png
 ![Fig_2_Mut_vs_Con](https://user-images.githubusercontent.com/71605598/122827100-f405d780-d2b1-11eb-8510-56a367b2a518.png)
 
 ### Hierarchical clustering
-Generate 3 hierarchically clustered heatmaps showing how different cell plates or cell lines are clustered based on their electrophysiological activity. Input file must be an excel sheet with similar format to Extracted-Parameters.xlsx. Data is read by default from sheet_name="Combined by plate" for hierarchical clustering by plate, sheet_name="Combined by line" for hierarchical clustering by cell line, and sheet_name="Synuclein triplication" for hierarchical clustering by plate for syn mutants only.
+Generate 3 hierarchically clustered heatmaps showing how different cell plates or cell lines are clustered based on their electrophysiological activity. Input file must be an excel sheet with similar format to Extracted-Parameters.xlsx. Data is read by default from sheet_name="Combined by plate" for hierarchical clustering by plate, sheet_name="Combined by line" for hierarchical clustering by cell line, and sheet_name="Synuclein triplication" for hierarchical clustering by plate for syn mutants only. 
+
+The extracted parameters used for hierarchical clustering are: Total spikes, number of bursts, number of network bursts, mean firing rate (MFR), synchrony index
 
 1. From the Clustering_analysis folder inside the cloned directory, run the hierarchical.py script with the filepath to the input file as an argument. For example:
 ```

@@ -70,7 +70,19 @@ def raster(inputFile):
         if len(val) == 0:
             rand = r.randint(70,90)
             ax2.scatter(rand,key,marker="|",color='w')
+            
+    # empty plot for electrodes with no spikes
+    well = inputFile[-13:-11]
+    print(well)
+    electrode_list = []
+    for i in range(1, 5):
+        for j in range (1, 5):
+            electrode_list.append(well + '_' + str(i) + str(j))
     
+    for electrode in electrode_list:
+        if electrode not in spike_df.columns:
+            rand = r.randint(70,90)
+            ax2.scatter(rand,electrode,marker="|",color='w', label=electrode)
 
     # check if burst info exists
     try:
@@ -109,8 +121,8 @@ def raster(inputFile):
     plt.suptitle(inputFile)
     plt.xlabel('Time (sec)')
     plt.xlim(0,600)
-    #ax1.set_ylim(0, 6000)
     ax1.set_yscale('log', base=10, subs=[2,3,4,5,6,7,8,9])
+    ax1.set_ylim(0.5, 10000)
     ax1.set_ylabel('Number of spikes/1 sec interval')
     ax2.set_ylabel('Electrode')
     plt.savefig(inputFile[:-4] + '_raster.png')

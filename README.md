@@ -52,7 +52,7 @@ $ python hierarchical.py Extracted-Parameters.xlsx
 ``` 
 
 ## Burst analysis + inter event interval histogram plotting
-### Burst detection using the ISI threshold method:
+### Burst detection using the ISI threshold method + logISI histogram:
 Detect electrode burts for a well using the ISI threshold method, with the minimum number of spikes allowed in a burst set to 5 and the maximum inter spike interval allowed in a burst set to 0.1 sec. Also computes the histogram of logISIs for each organoid.
 
 Output: a bursts.csv file and a log_ISI.png file for every spikes.csv input file
@@ -64,7 +64,7 @@ $ python ISI_threshold_burst_detection.py inputFolder
 #### Example output:
 ![W2_D6_log_ISI](https://user-images.githubusercontent.com/71605598/130262587-7541aade-b070-4a53-904b-eca5ff946aff.png)
 
-### Network burst detection using the adaptive threshold method:
+### Network burst detection using the adaptive threshold method + logIBeI histogram:
 Detect network burts for a well using the ISI threshold method, with the minimum percent of spikes allowed in a burst set to 0.1875 out of 16 bursting electrodes. Also computes the histogram of logIBeIs for each organoid. 
 N.B.: ISI_threshold_burst_detection.py must be run on data before running this script
 

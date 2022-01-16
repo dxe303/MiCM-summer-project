@@ -169,9 +169,9 @@ def extract_parameters(inputFolder, time):
 
     
 
-#input_folder = sys.argv[1]  # first command line argument should be input directory
-input_folder = "/Users/xueerding/Desktop/MiCM/data/Extracted_files/Feb132020_ND3439SNCA_WTest3_2h/"
-        
+input_folder = sys.argv[1]  # first command line argument should be input directory
+
+
 # find spike files in input folder
 files = glob.glob(input_folder + '/**/*spike_list.csv', recursive=True)
 for inputFile in files:

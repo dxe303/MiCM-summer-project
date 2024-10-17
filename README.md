@@ -1,6 +1,6 @@
 # MiCM-summer-project
 
-Data visualization tools for MEA data of 2D and 3D cell cultures
+Data visualization and analyysis tools for MEA data of 2D and 3D cell cultures
 
 ## Installation:
 Dependencies:

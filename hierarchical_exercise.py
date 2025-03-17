@@ -14,11 +14,10 @@ import matplotlib as plt
 inputFile = sys.argv[1]  # first field should be input file path
 
 # hierarchical clustering by cell line
-data2 = pd.read_excel(inputFile, sheet_name="Edited", header=4, index_col=[0,1,2], skiprows=[5,])
+data2 = pd.read_excel(inputFile, sheet_name="Rhalena Pink Parkin AIW", header=4, index_col=[0,1], skiprows=[5,])
 
 
-data_to_clus2 = data2[['Total spikes', 'MFR', 'Number of bursts', 
-                     'Number of network bursts', 'Synchrony index']]
+data_to_clus2 = data2[['Total spikes', 'MFR', 'ISI Coefficient of variation', 'Number of bursts', 'Spikes per Burst', 'Burst Duration', 'Number of network bursts', 'Network burst duration', 'Spikes per Network Burst', 'Synchrony']]
 
 groups2 = data2.index.get_level_values(0)
 

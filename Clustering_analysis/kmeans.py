@@ -11,14 +11,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
-data = pd.read_excel("/Users/xueerding/Desktop/MiCM/data/Extracted-Parameters.xlsx", sheet_name="Synuclein Triplication", header=4, index_col=[0,1], skiprows=[5,])
+data = pd.read_excel("/Users/ghislainedeyab/Desktop/MiCM-summer-project/Extracted-Parameters.xlsx", sheet_name="Rhalena Pink Parkin AIW", header=4, index_col=[0,1], skiprows=[5,])
 
 print(data.head(5))
 print(data.tail(5))
 
 kmeans = KMeans(n_clusters=3, init='k-means++')
 
-data['cluster'] = kmeans.fit_predict(data[["Total spikes", "MFR", "Number of bursts", "Number of network bursts", "Synchrony index"]])
+data['cluster'] = kmeans.fit_predict(data[['Total spikes', 'MFR', 'ISI Coefficient of variation', 'Number of bursts', 'Spikes per Burst', 'Burst Duration', 'Number of network bursts', 'Network burst duration', 'Spikes per Network Burst', 'Synchrony']])
 
 
 # visualize
@@ -35,10 +35,10 @@ data['c'] = data.cluster.map({0:colors[0], 1:colors[1], 2:colors[2]})
 # 3D plot
 fig = plt.figure(figsize=(30,25))
 ax = fig.add_subplot(111, projection='3d')
-ax.scatter(data["Total spikes"], data["MFR"], data["Synchrony index"], c=data.c, s=15)
+ax.scatter(data["Total spikes"], data["Number of bursts"], data["Number of network bursts"], c=data.c, s=15)
 ax.set_xlabel('Total spikes')
-ax.set_ylabel('MFR')
-ax.set_zlabel('Synchrony index')
+ax.set_ylabel('Burst number')
+ax.set_zlabel('NB number')
 
 '''
 for i in range(data.shape[0]):
@@ -48,8 +48,8 @@ plt.show()
 
 fig2 = plt.figure(figsize=(30,25))
 ax2 = fig2.add_subplot(111, projection='3d')
-ax2.scatter(data["Number of bursts"], data["Number of network bursts"], data["Synchrony index"], c=data.c, s=15)
+ax2.scatter(data["Spikes per Burst"], data["Spikes per Network Burst"], data["Network burst duration"], c=data.c, s=15)
 ax2.set_xlabel('Number of bursts')
 ax2.set_ylabel('Number of network bursts')
-ax2.set_zlabel('Synchrony index')
+ax2.set_zlabel('Network burst duration')
 plt.show()

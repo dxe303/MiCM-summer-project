@@ -117,6 +117,26 @@ $ python power_spectrum_mean.py Mutant_organoids 0.05
 
 `MiCM-summer-project\Spike_analysis\drafts` contains spike_histogram.py, which plots a histogram of logISIs for an input spikes.csv file, and power_spectrum_axion.py, which plots a grid of power spectrums for every organoid in the spike_counts.csv outputted by Axion software.
 
+## Clustering analysis
+### Uses CSV file with average parameters from all wells in a given plate. We can generate an Extracted_Parameters.csv file 
+1. From the Supplementary_Graphs folder in the cloned directory, run the extract_param.py script with the filepath set to the InputFolder containing the output from Step1, Step2, and Step3.
+
+```
+$ python extract_param.py path_to_InputFolder
+```
+Output will include:
+	- The number of total spikes per well
+	- The mean firing rate (MFR) across all electrodes
+	- The mean inter-spike-interval (ISI) across all electrodes
+	- The mean burst rate across all electrodes
+	- The mean number of spikes per burst across all electrodes
+	- The mean inter burst interval (IBI) across all electrodes
+	- The mean number of spikes per network burst 
+	- The mean number of bursts per network burst 
+
+Additional columns can manually be added to included other parameters e.x total burst count and total network burst count taken from the output file of Step2 and Step3
+
+
 ## Relevant readings:
 ### Electrophysiology
 - M. Chiappalone, A. Novellino, I. Vajda, A. Vato, S. Martinoia, J. van Pelt. Burst detection algorithms for the analysis of spatio-temporal patterns in cortical networks of neurons. Neurocomputing. https://doi.org/10.1016/j.neucom.2004.10.094. 

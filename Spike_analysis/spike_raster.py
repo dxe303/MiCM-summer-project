@@ -34,7 +34,8 @@ def raster(inputFile):
     
     
     #Plot figure
-    fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, figsize=(20, 6))
+    fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, figsize=(10, 6))
+    #Normally fig size is 20,6
     #fig.dpi=80
     fig.facecolor='w'
     fig.edgecolor='k'
@@ -120,7 +121,7 @@ def raster(inputFile):
         
     plt.suptitle(inputFile)
     plt.xlabel('Time (sec)')
-    plt.xlim(0,600)
+    plt.xlim(176,181)
     ax1.set_yscale('log', base=10, subs=[2,3,4,5,6,7,8,9])
     ax1.set_ylim(0.5, 10000)
     ax1.set_ylabel('Number of spikes/1 sec interval')
